@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+    <script>
+      var scale
+var centerX
+var centerY
+function setup() {
+  createCanvas(400, 400);
+  scale = 1
+  centerX = 200
+  centerY = 200
+}
+
+function mousePressed() {
+  // ellipse(centerX-scale*20,centerY,70*scale,70*scale);
+  // flower
+  stroke("black");
+  strokeWeight(2);
+  fill(random(50,250),random(100,200),random(100,200));
+  ellipse(mouseX+5,mouseY+5,10); // bottom right
+  ellipse(mouseX+5,mouseY-5,10); // top right
+  ellipse(mouseX-5,mouseY+5,10); // bottom left
+  ellipse(mouseX-5,mouseY-5,10); // top left
+  
+  fill("orange");
+  ellipse(mouseX,mouseY,10);
+  
+}
+
+function draw() {
+  // tree
+  // background(220);
+  // rect(centerX*scale,centerY,scale *200,scale * 200); // dilating background
+  
+  stroke(140,100,50);
+  fill(130,90,30);
+  triangle(width/2,200,width*.45,375,width*.55,375); // trunk
+  
+  // branches
+  strokeWeight(5)
+  stroke(130,90,30)
+  line(width/2,200,width*.3,70); // top left
+  line(width/2,200,width*.85,175); // middle right
+  line(width/2,200,width*.15,250); // bottom left
+  line(width/2,200,width*.6,60); // top right
+  line(width/2,200,width*.13,170); // middle left
+  line(width/2,275,width*.6,230); // bottom right
+  line(width*.45,165,width/2,100); // top left - right branch
+  line(width*.3,180,width*.25,140); // middle left - top branch
+  line(width*.40,140,width*.20,100); // top left - left branch
+  line(width*.35,260,width*.4,218); // bottom left - bottom branch
+  line(width*.17,200,width*.29,230); // bottom left - top branch
+  line(width*.7,187,width*.8,200); // bottom right - bottom branch
+  line(width*.66,187,width*.75,140); // bottom right - top branch
+  line(width*.53,160,width*.7,100); // top right - right branch
+  line(width*.35,100,width*.35,70); // top left - top branch
+  
+  scale = scale +.01
+}
+
+function keyPressed() {
+  background(random(50,250),random(100,250),random(100,200)); // background
+}
+
+function mouseDragged() {
+  strokeWeight(2);
+  stroke(100,200,100);
+  fill(50,200,20);
+  ellipse(mouseX,mouseY,10,15); // leaf
+  line(mouseX,mouseY+9,mouseX,mouseY+15); // leaf's stem
+  line(mouseX,mouseY-3,mouseX,mouseY+3); // middle line in the leaf
+}
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/AngelC7434/p5js/blob/master/interaction-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
